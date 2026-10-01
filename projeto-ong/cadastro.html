@@ -1,0 +1,158 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seja um voluntário</title>
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+  
+<body>
+    <header>
+        <h1>&#x1F64C; Mãos que transformam</h1>
+        
+        <!-- Caixa de seleção invisível que controla o menu -->
+        <input type="checkbox" id="menu-controle">
+        
+        <!-- Ícone do hambúrguer (as 3 linhas) -->
+        <label for="menu-controle" class="menu-botao">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Menu de Navegação -->
+<nav class="menu-navegacao">
+    <ul>
+
+        <li>
+            <a href="index.html">Início</a>
+        </li>
+
+        <li class="item-dropdown">
+
+            <a href="projetos.html">Projetos</a>
+
+            <ul class="submenu">
+
+                <li>
+                    <a href="projetos.html#alimentacao">
+                        Alimentação
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projetos.html#educacao">
+                        Educação
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projetos.html#trabalho">
+                        Trabalho
+                    </a>
+                </li>
+
+            </ul>
+
+        </li>
+
+        <li>
+            <a href="cadastro.html">Seja Voluntário</a>
+        </li>
+
+    </ul>
+</nav>
+    </header>
+
+  <main>
+    <section>
+    <h2>Sua ajuda é muito bem-vinda!</h2>
+    
+    <p>
+      Cada pessoa que decide doar seu tempo, conhecimento e dedicação tem um papel fundamental na construção de um mundo mais solidário. Sua atitude faz a diferença e nos ajuda a levar esperança e oportunidades para quem mais precisa.
+    </p>
+
+    <p>
+      Agradecemos por escolher a Mãos que Transformam e por se cadastrar como voluntário. Juntos, podemos transformar pequenos gestos em grandes mudanças. Seja bem-vindo(a) à nossa equipe!
+    </p>
+    </section>
+    
+    <form>
+      <fieldset>
+        
+        <legend>Dados pessoais</legend>
+
+        <div>
+      <label for="nome">Nome completo:</label>
+      <input type="text"
+        id="nome" 
+        name="nome"
+        placeholder ="Fulano da silva sauro"
+        required>
+        <span class="mensagem-campo mensagem-erro">Por favor, preencha seu nome completo.</span>
+        <span class="mensagem-campo mensagem-sucesso">Nome válido!</span>
+        </div>
+        
+      <div>
+        <label for="telefone">Telefone:</label>
+        <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"
+            placeholder="(00) 00000-0000"
+            required>
+        <span class="mensagem-campo mensagem-erro">Use o formato (00) 00000-0000.</span>
+        <span class="mensagem-campo mensagem-sucesso">Telefone válido!</span>
+      </div>
+        
+        <div>
+        <label for="cpf">CPF:</label>
+        <input
+            type="text"
+            id="cpf"
+            name="cpf"
+            pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+            placeholder="000.000.000-00"
+            required>
+        <span class="mensagem-campo mensagem-erro">Use o formato 000.000.000-00.</span>
+        <span class="mensagem-campo mensagem-sucesso">CPF válido!</span>
+        </div>
+        
+        <div>
+        <label for="cep">CEP:</label>
+        <input
+            type="text"
+            id="cep"
+            name="cep"
+            pattern="[0-9]{5}-[0-9]{3}"
+            placeholder="00000-000"
+            required>
+        <span class="mensagem-campo mensagem-erro">Use o formato 00000-000.</span>
+        <span class="mensagem-campo mensagem-sucesso">CEP válido!</span>
+        </div>
+      
+    <div>
+      <button type="submit"> Quero ser Voluntário!</button>
+    </div>
+
+      </fieldset>
+      </form>
+
+  </main>
+
+
+    <footer>
+      <div>
+      &copy; 2026 Mãos que Transformam. Todos os direitos reservados.
+      </div>
+
+      &#x1F4DE; Contato: (35) 99999-9999
+      &#x1F4E7; Email: contato.maosquetransformam@gmail.com
+      &#x1F4AC; Juntos, transformamos solidariedade em mudança.
+
+    </footer>
+</body>
+  
+</html>

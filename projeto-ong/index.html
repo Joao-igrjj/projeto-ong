@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <title>ONG Mãos que Transformam</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>&#x1F64C; Mãos que transformam</h1>
+
+        <!-- Caixa de seleção invisível que controla o menu -->
+        <input type="checkbox" id="menu-controle">
+
+        <!-- Ícone do hambúrguer (as 3 linhas) -->
+        <label for="menu-controle" class="menu-botao" tabindex="0" role="button" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Menu de navegação: links com data-link são interceptados pelo js/app.js -->
+        <nav class="menu-navegacao">
+            <ul>
+                <li>
+                    <a href="#/" data-link>Início</a>
+                </li>
+
+                <li class="item-dropdown">
+                    <a href="#/projetos" data-link>Projetos</a>
+
+                    <ul class="submenu">
+                        <li><a href="#/projetos/alimentacao" data-link>Alimentação</a></li>
+                        <li><a href="#/projetos/educacao" data-link>Educação</a></li>
+                        <li><a href="#/projetos/trabalho" data-link>Trabalho</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#/cadastro" data-link>Seja Voluntário</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Div principal: o JavaScript injeta aqui o conteúdo de cada página -->
+    <main id="app" tabindex="-1">
+        <noscript>
+            <p>Este site precisa do JavaScript ativado para exibir o conteúdo.</p>
+        </noscript>
+    </main>
+
+    <footer>
+        <div>
+            &copy; 2026 Mãos que Transformam. Todos os direitos reservados.
+        </div>
+
+        &#x1F4DE; Contato: (35) 99999-9999
+        &#x1F4E7; Email: contato.maosquetransformam@gmail.com
+        &#x1F4AC; Juntos, transformamos solidariedade em mudança.
+    </footer>
+
+
+    <!-- ==========================================
+         MODELOS DE PÁGINA (não aparecem na tela;
+         o JS clona o que estiver dentro de cada um)
+         ========================================== -->
+
+    <!-- Início -->
+    <template id="tpl-inicio">
+        <section>
+            <p>A Mãos que Transformam é uma organização sem fins lucrativos dedicada a promover solidariedade e oportunidades para pessoas em situação de vulnerabilidade.</p>
+
+            <p>Por meio de projetos sociais, doações e ações voluntárias, buscamos transformar realidades e construir uma comunidade mais justa, acolhedora e participativa.</p>
+
+            <img
+                src="img/img1-500.jpg"
+                alt="Pessoas ao redor do mundo unidas pela cooperação.">
+        </section>
+    </template>
+
+    <!-- Projetos -->
+    <template id="tpl-projetos">
+        <section data-lista="projetos">
+            <h2>Iniciativas Solidárias</h2>
+
+            <p>
+                Conheça os projetos da Mãos que Transformam e descubra
+                como você pode contribuir para transformar vidas.
+            </p>
+        </section>
+
+        <section class="feedback">
+            <div class="feedback-grupo">
+                <h3>Modal</h3>
+
+                <input type="checkbox" id="abrir-modal" class="controle-modal">
+
+                <label for="abrir-modal" class="botao-modal" tabindex="0" role="button">
+                    Quero saber mais
+                </label>
+
+                <div class="modal-demo" role="dialog" aria-modal="true">
+                    <div class="modal-conteudo">
+                        <h2>Seja voluntário</h2>
+
+                        <p>
+                            Sua participação pode contribuir para
+                            transformar vidas por meio das ações
+                            da ONG Mãos que Transformam.
+                        </p>
+
+                        <label for="abrir-modal" class="botao-fechar" tabindex="0" role="button">
+                            Entendi
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Componentes de Feedback</h2>
+
+            <p>
+                Exemplos de componentes utilizados para fornecer
+                respostas imediatas às ações do usuário.
+            </p>
+
+            <div class="feedback-grupo" data-lista="alertas">
+                <h3>Alertas</h3>
+            </div>
+
+            <div class="feedback-grupo">
+                <h3>Toast</h3>
+
+                <div class="toast-demo" role="status">
+                    Inscrição realizada com sucesso!
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Cadastro -->
+    <template id="tpl-cadastro">
+        <section>
+            <h2>Sua ajuda é muito bem-vinda!</h2>
+
+            <p>
+                Cada pessoa que decide doar seu tempo, conhecimento e dedicação tem um papel fundamental na construção de um mundo mais solidário. Sua atitude faz a diferença e nos ajuda a levar esperança e oportunidades para quem mais precisa.
+            </p>
+
+            <p>
+                Agradecemos por escolher a Mãos que Transformam e por se cadastrar como voluntário. Juntos, podemos transformar pequenos gestos em grandes mudanças. Seja bem-vindo(a) à nossa equipe!
+            </p>
+        </section>
+
+        <form novalidate>
+            <fieldset>
+                <legend>Dados pessoais</legend>
+
+                <div data-lista="campos" class="lista-transparente"></div>
+
+                <div>
+                    <button type="submit">Quero ser Voluntário!</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <!-- Histórico de cadastros vindo do localStorage (escondido enquanto vazio) -->
+        <section id="voluntarios" hidden>
+            <h2>Voluntários cadastrados neste navegador</h2>
+            <div id="voluntarios-lista" class="lista-transparente"></div>
+            <button type="button" id="limpar-voluntarios">Limpar lista</button>
+        </section>
+    </template>
+
+    <!-- ==========================================
+         MODELOS DE COMPONENTE (preenchidos com dados do js/dados.js)
+         data-campo  -> conteúdo de texto
+         data-attr   -> atributos ("atributo:chave,atributo:chave")
+         data-classe -> classe CSS vinda do dado
+         ========================================== -->
+
+    <template id="tpl-projeto">
+        <article data-attr="id:id">
+            <h3 data-campo="titulo"></h3>
+            <span class="badge" data-classe="classeStatus" data-campo="status"></span>
+            <p data-campo="descricao"></p>
+        </article>
+    </template>
+
+    <template id="tpl-alerta">
+        <div class="alerta" data-classe="tipo" data-attr="role:papel">
+            <strong data-campo="titulo"></strong>
+            <span data-campo="texto"></span>
+        </div>
+    </template>
+
+    <template id="tpl-campo">
+        <div>
+            <label data-campo="rotulo" data-attr="for:id"></label>
+            <input required data-attr="id:id,name:id,type:tipo,placeholder:placeholder,pattern:padrao">
+            <span class="mensagem-campo" aria-live="polite"></span>
+        </div>
+    </template>
+
+    <template id="tpl-voluntario">
+        <article>
+            <h3 data-campo="nome"></h3>
+            <p data-campo="detalhes"></p>
+        </article>
+    </template>
+
+    <!-- Página não encontrada -->
+    <template id="tpl-404">
+        <section>
+            <h2>Página não encontrada</h2>
+            <p>O endereço que você acessou não existe. Volte para o <a href="#/" data-link>início</a>.</p>
+        </section>
+    </template>
+
+    <!-- Day.js (CDN, versão fixa): núcleo + plugin + idioma, nesta ordem e ANTES do app.js -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/relativeTime.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/locale/pt-br.js"></script>
+
+    <!-- Ponto de entrada único: os demais módulos são importados por ele (import/export) -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
