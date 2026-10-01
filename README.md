@@ -3,7 +3,7 @@
 Uma aplicação web progressiva, responsiva e acessível (SPA) desenvolvida para a ONG **Mãos que Transformam**, focada na captação de voluntários e divulgação de iniciativas sociais.
 
 ## 🔗 Link do Projeto
-Clique aqui para acessar o site: [Mãos que Transformam](https://joao-igrjj.github.io/projeto-ong/)
+Clique aqui para acessar o site: [Mãos que Transformam]()
 
 ## 🚀 Tecnologias Utilizadas
 - **HTML5 Semantic & Templates (`<template>`)**: Renderização dinâmica de páginas e componentes.
